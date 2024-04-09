@@ -22,7 +22,7 @@ require "settings/init.php";
 </head>
 
 <body>
-<div class="row g-2">
+<div class="row justify-content-center">
     <div id="map">
     </div>
 </div>
@@ -38,29 +38,46 @@ require "settings/init.php";
         zoom: 12.5
     });
 
-    // Create a default Marker and add it to the map.
-    const marker1 = new mapboxgl.Marker()
+    const customMarkerEl = document.createElement('div');
+    customMarkerEl.className = 'custom-marker';
+
+    const customMarkerEl2 = document.createElement('div');
+    customMarkerEl2.className = 'custom-marker';
+
+    const customMarkerEl3 = document.createElement('div');
+    customMarkerEl3.className = 'custom-marker';
+
+    const customMarkerEl4 = document.createElement('div');
+    customMarkerEl4.className = 'custom-marker';
+
+    const customMarkerEl5 = document.createElement('div');
+    customMarkerEl5.className = 'custom-marker';
+
+    const customMarkerEl6 = document.createElement('div');
+    customMarkerEl6.className = 'custom-marker';
+
+    const marker1 = new mapboxgl.Marker(customMarkerEl)
         .setLngLat([11.8905921, 54.7668023])
         .addTo(map);
 
-    const marker2 = new mapboxgl.Marker()
+    const marker2 = new mapboxgl.Marker(customMarkerEl2)
         .setLngLat([11.862117, 54.770114])
         .addTo(map);
 
-    const marker3 = new mapboxgl.Marker()
+    const marker3 = new mapboxgl.Marker(customMarkerEl3)
         .setLngLat([11.848688, 54.7826153])
         .addTo(map);
 
-    const marker4 = new mapboxgl.Marker()
+    const marker4 = new mapboxgl.Marker(customMarkerEl4)
         .setLngLat([11.8615789, 54.7732872])
         .addTo(map);
 
-    const marker5 = new mapboxgl.Marker()
+    const marker5 = new mapboxgl.Marker(customMarkerEl5)
         .setLngLat([11.8708083, 54.7706267])
         .addTo(map);
 
-    const marker6 = new mapboxgl.Marker()
-        .setLngLat([11.8771054, 54.76946])
+    const marker6 = new mapboxgl.Marker(customMarkerEl6)
+        .setLngLat([11.878360, 54.769360])
         .addTo(map);
 
 

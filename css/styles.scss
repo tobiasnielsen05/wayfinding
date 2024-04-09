@@ -26,3 +26,10 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 	width: 100%;
 }
 
+.custom-marker {
+	background-color: #e31515;
+	border-radius: 50%;
+	width: 20px;
+	height: 20px;
+	border: 2px solid white;
+}
