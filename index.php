@@ -16,6 +16,9 @@ require "settings/init.php";
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js"></script>
 
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.3.1/mapbox-gl-directions.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.3.1/mapbox-gl-directions.css" type="text/css">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
@@ -36,6 +39,13 @@ require "settings/init.php";
         center: [11.869395, 54.768070],
         zoom: 12.5
     });
+
+    map.addControl(
+        new MapboxDirections({
+            accessToken: mapboxgl.accessToken
+        }),
+        'top-left'
+    );
 
     const customMarkerEl = document.createElement('div');
     customMarkerEl.className = 'custom-marker';
@@ -91,16 +101,31 @@ require "settings/init.php";
     customMarkerEl6.style.height = '40px'; // Adjust height as needed
     customMarkerEl6.style.borderRadius = '50%';
 
+    const button = document.createElement('button');
+    button.textContent = 'Open Popup';
+
+    button.addEventListener('click', () => {
+        const newPopup = new mapboxgl.Popup({className: 'popup'});
+
+        newPopup.setHTML("<h3>New Popup</h3><p>This is a test</p>");
+        newPopup.addTo(map);
+    });
+    document.body.appendChild(button);
+
     const popup1 = new mapboxgl.Popup({className: 'popup'}).setHTML(`
     <div>
         <p>Dyr er så sjove!<br>Hvad er dit yndlingsdyr og hvorfor?</p>
         <div class="flagra"><img src="images/flagraleft.png"></div>
     </div>
 `);
+
     const popup2 = new mapboxgl.Popup({className: 'popup'}).setHTML(`
     <div>
         <img src="images/flagradown.png" style="width: auto; height: 80px;"<br>
         <p>Kan du også høre den gode musik der kommer nede fra Kajen?<br>Kan du finde statuen på vej hen til Kajen?</p>
+        <div>
+            <button class="button">Ankommet?</button>
+        </div>
     </div>
 `);
     const popup3 = new mapboxgl.Popup({className: 'popup'}).setHTML(`
