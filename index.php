@@ -4,18 +4,16 @@ require "settings/init.php";
 <!DOCTYPE html>
 <html lang="da">
 <head>
-	<meta charset="utf-8">
-	
-	<title>Flagra's Guide</title>
+    <meta charset="utf-8">
+
+    <title>Flagra's Guide</title>
 
     <meta name="robots" content="All">
-	<meta name="author" content="Udgiver">
-	<meta name="copyright" content="Information om copyright">
-	
-	<link href="css/styles.css" rel="stylesheet" type="text/css">
-    <link href="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css" rel="stylesheet">
+    <meta name="author" content="Udgiver">
+    <meta name="copyright" content="Information om copyright">
 
-    <script type="module" src="./index.js"></script>
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,7 +27,6 @@ require "settings/init.php";
 
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-
 
     mapboxgl.accessToken = 'pk.eyJ1IjoidG9uMDAxIiwiYSI6ImNsdXMyZjJocjBnMHkya24wcXgwY2Z6Z3IifQ.IBOKpqMvOrn3_6oxvapjsA';
     const map = new mapboxgl.Map({
@@ -94,32 +91,46 @@ require "settings/init.php";
     customMarkerEl6.style.height = '40px'; // Adjust height as needed
     customMarkerEl6.style.borderRadius = '50%';
 
+    const popup1 = new mapboxgl.Popup({className: 'popup'}).setHTML("Dyr er så sjove!<br>Hvad er dit yndlingsdyr og hvorfor?");
+    const popup2 = new mapboxgl.Popup({className: 'popup'}).setHTML("Kan du også høre den gode musik der kommer nede fra Kajen?<br>Kan du finde statuen på vej hen til Kajen?");
+    const popup3 = new mapboxgl.Popup({className: 'popup'}).setHTML("Det er godt nok blevet varmt!<br>Måske et dyp i vandet kunne være godt.<br>Hvor mange GRÅ huse kan du finde på vejen hen til badebroen?");
+    const popup4 = new mapboxgl.Popup({className: 'popup'}).setHTML("Er du også blevet lidt sulten?<br>Kan du finde mig 15 gange inden vi når cafeen?<br>Måske jeg har en ekstra lille opgave.");
+    const popup5 = new mapboxgl.Popup({className: 'popup'}).setHTML("Jeg elsker at være på legepladsen.<br>Hvor mange gange kan du finde mig på vejen derhen?");
+    const popup6 = new mapboxgl.Popup({className: 'popup'}).setHTML("Så mange pæne ting, der ikke har noget sted at bo!<br>Der er 3 lyskryds inden du når hen til genbrugsbutikken.<br>Kan du finde dem alle sammen?");
+
+
 
     const marker1 = new mapboxgl.Marker(customMarkerEl)
         .setLngLat([11.890960, 54.766383])
+        .setPopup(popup1)
         .addTo(map);
 
 
     const marker2 = new mapboxgl.Marker(customMarkerEl2)
         .setLngLat([11.862117, 54.770114])
+        .setPopup(popup2)
         .addTo(map);
 
 
     const marker3 = new mapboxgl.Marker(customMarkerEl3)
         .setLngLat([11.848569, 54.782692])
+        .setPopup(popup3)
         .addTo(map);
 
 
     const marker4 = new mapboxgl.Marker(customMarkerEl4)
         .setLngLat([11.863070, 54.772738])
+        .setPopup(popup4)
         .addTo(map);
 
     const marker5 = new mapboxgl.Marker(customMarkerEl5)
         .setLngLat([11.8708083, 54.7706267])
+        .setPopup(popup5)
         .addTo(map);
 
     const marker6 = new mapboxgl.Marker(customMarkerEl6)
         .setLngLat([11.878360, 54.769360])
+        .setPopup(popup6)
         .addTo(map);
 
 
