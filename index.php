@@ -91,20 +91,47 @@ require "settings/init.php";
     customMarkerEl6.style.height = '40px'; // Adjust height as needed
     customMarkerEl6.style.borderRadius = '50%';
 
-    const popup1 = new mapboxgl.Popup({className: 'popup'}).setHTML("Dyr er så sjove!<br>Hvad er dit yndlingsdyr og hvorfor?");
-    const popup2 = new mapboxgl.Popup({className: 'popup'}).setHTML("Kan du også høre den gode musik der kommer nede fra Kajen?<br>Kan du finde statuen på vej hen til Kajen?");
-    const popup3 = new mapboxgl.Popup({className: 'popup'}).setHTML("Det er godt nok blevet varmt!<br>Måske et dyp i vandet kunne være godt.<br>Hvor mange GRÅ huse kan du finde på vejen hen til badebroen?");
-    const popup4 = new mapboxgl.Popup({className: 'popup'}).setHTML("Er du også blevet lidt sulten?<br>Kan du finde mig 15 gange inden vi når cafeen?<br>Måske jeg har en ekstra lille opgave.");
-    const popup5 = new mapboxgl.Popup({className: 'popup'}).setHTML("Jeg elsker at være på legepladsen.<br>Hvor mange gange kan du finde mig på vejen derhen?");
-    const popup6 = new mapboxgl.Popup({className: 'popup'}).setHTML("Så mange pæne ting, der ikke har noget sted at bo!<br>Der er 3 lyskryds inden du når hen til genbrugsbutikken.<br>Kan du finde dem alle sammen?");
-
-
+    const popup1 = new mapboxgl.Popup({className: 'popup'}).setHTML(`
+    <div>
+        <p>Dyr er så sjove!<br>Hvad er dit yndlingsdyr og hvorfor?</p>
+        <div class="flagra"><img src="images/flagraleft.png"></div>
+    </div>
+`);
+    const popup2 = new mapboxgl.Popup({className: 'popup'}).setHTML(`
+    <div>
+        <img src="images/flagradown.png" style="width: auto; height: 80px;"<br>
+        <p>Kan du også høre den gode musik der kommer nede fra Kajen?<br>Kan du finde statuen på vej hen til Kajen?</p>
+    </div>
+`);
+    const popup3 = new mapboxgl.Popup({className: 'popup'}).setHTML(`
+    <div>
+        <p>Det er godt nok blevet varmt!<br>Måske et dyp i vandet kunne være godt.<br>Hvor mange GRÅ huse kan du finde på vejen hen til badebroen?</p>
+        <img src="images/flagraright.png" style="width: auto; height: 80px;"
+    </div>
+`);
+    const popup4 = new mapboxgl.Popup({className: 'popup'}).setHTML(`
+    <div>
+        <p>Er du også blevet lidt sulten?<br>Kan du finde mig 15 gange inden vi når cafeen?<br>Måske jeg har en ekstra lille opgave.</p>
+        <img src="images/flagraright.png" style="width: auto; height: 80px;"
+    </div>
+`);
+    const popup5 = new mapboxgl.Popup({className: 'popup'}).setHTML(`
+    <div>
+        <p>Jeg elsker at være på legepladsen.<br>Hvor mange gange kan du finde mig på vejen derhen?</p>
+        <img src="images/flagraright.png" style="width: auto; height: 80px;"
+    </div>
+`);
+    const popup6 = new mapboxgl.Popup({className: 'popup'}).setHTML(`
+    <div>
+        <p>Så mange pæne ting, der ikke har noget sted at bo!<br>Der er 3 lyskryds inden du når hen til genbrugsbutikken.<br>Kan du finde dem alle sammen?</p>
+        <img src="images/flagraright.png" style="width: auto; height: 80px;"
+    </div>
+`);
 
     const marker1 = new mapboxgl.Marker(customMarkerEl)
         .setLngLat([11.890960, 54.766383])
         .setPopup(popup1)
         .addTo(map);
-
 
     const marker2 = new mapboxgl.Marker(customMarkerEl2)
         .setLngLat([11.862117, 54.770114])
