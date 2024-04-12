@@ -15,7 +15,6 @@ require "settings/init.php";
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js"></script>
-
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.3.1/mapbox-gl-directions.js"></script>
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.3.1/mapbox-gl-directions.css" type="text/css">
 
@@ -34,7 +33,6 @@ require "settings/init.php";
     mapboxgl.accessToken = 'pk.eyJ1IjoidG9uMDAxIiwiYSI6ImNsdXMyZjJocjBnMHkya24wcXgwY2Z6Z3IifQ.IBOKpqMvOrn3_6oxvapjsA';
     const map = new mapboxgl.Map({
         container: 'map',
-        // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
         style: 'mapbox://styles/mapbox/streets-v12',
         center: [11.869395, 54.768070],
         zoom: 12.5
@@ -65,98 +63,90 @@ require "settings/init.php";
     const customMarkerEl6 = document.createElement('div');
     customMarkerEl6.className = 'custom-marker';
 
-    customMarkerEl.style.backgroundImage = 'url(images/paw.png)'; // Replace PATH_TO_YOUR_IMAGE with the path to your custom marker image
+    customMarkerEl.style.backgroundImage = 'url(images/paw.png)';
     customMarkerEl.style.backgroundSize = 'cover';
-    customMarkerEl.style.width = '40px'; // Adjust width as needed
-    customMarkerEl.style.height = '40px'; // Adjust height as needed
+    customMarkerEl.style.width = '40px';
+    customMarkerEl.style.height = '40px';
     customMarkerEl.style.borderRadius = '50%';
 
-    customMarkerEl2.style.backgroundImage = 'url(images/waves4.png)'; // Replace PATH_TO_YOUR_IMAGE with the path to your custom marker image
+    customMarkerEl2.style.backgroundImage = 'url(images/waves4.png)';
     customMarkerEl2.style.backgroundSize = 'cover';
-    customMarkerEl2.style.width = '40px'; // Adjust width as needed
-    customMarkerEl2.style.height = '40px'; // Adjust height as needed
+    customMarkerEl2.style.width = '40px';
+    customMarkerEl2.style.height = '40px';
     customMarkerEl2.style.borderRadius = '50%';
 
-    customMarkerEl3.style.backgroundImage = 'url(images/badebold1.png)'; // Replace PATH_TO_YOUR_IMAGE with the path to your custom marker image
+    customMarkerEl3.style.backgroundImage = 'url(images/badebold1.png)';
     customMarkerEl3.style.backgroundSize = 'cover';
-    customMarkerEl3.style.width = '40px'; // Adjust width as needed
-    customMarkerEl3.style.height = '40px'; // Adjust height as needed
+    customMarkerEl3.style.width = '40px';
+    customMarkerEl3.style.height = '40px';
     customMarkerEl3.style.borderRadius = '50%';
 
-    customMarkerEl4.style.backgroundImage = 'url(images/kogg1.png)'; // Replace PATH_TO_YOUR_IMAGE with the path to your custom marker image
+    customMarkerEl4.style.backgroundImage = 'url(images/kogg1.png)';
     customMarkerEl4.style.backgroundSize = 'cover';
-    customMarkerEl4.style.width = '40px'; // Adjust width as needed
-    customMarkerEl4.style.height = '40px'; // Adjust height as needed
+    customMarkerEl4.style.width = '40px';
+    customMarkerEl4.style.height = '40px';
     customMarkerEl4.style.borderRadius = '50%';
 
-    customMarkerEl5.style.backgroundImage = 'url(images/vippev3.png)'; // Replace PATH_TO_YOUR_IMAGE with the path to your custom marker image
+    customMarkerEl5.style.backgroundImage = 'url(images/vippev3.png)';
     customMarkerEl5.style.backgroundSize = 'cover';
-    customMarkerEl5.style.width = '40px'; // Adjust width as needed
-    customMarkerEl5.style.height = '40px'; // Adjust height as needed
+    customMarkerEl5.style.width = '40px';
+    customMarkerEl5.style.height = '40px';
     customMarkerEl5.style.borderRadius = '50%';
 
-    customMarkerEl6.style.backgroundImage = 'url(images/troeje3.png)'; // Replace PATH_TO_YOUR_IMAGE with the path to your custom marker image
+    customMarkerEl6.style.backgroundImage = 'url(images/troeje3.png)';
     customMarkerEl6.style.backgroundSize = 'cover';
-    customMarkerEl6.style.width = '40px'; // Adjust width as needed
-    customMarkerEl6.style.height = '40px'; // Adjust height as needed
+    customMarkerEl6.style.width = '40px';
+    customMarkerEl6.style.height = '40px';
     customMarkerEl6.style.borderRadius = '50%';
-
-    const button = document.createElement('button');
-    button.textContent = 'Open Popup';
-
-    button.addEventListener('click', () => {
-        const newPopup = new mapboxgl.Popup({className: 'popup'});
-
-        newPopup.setHTML("<h3>New Popup</h3><p>This is a test</p>");
-        newPopup.addTo(map);
-    });
-    document.body.appendChild(button);
 
     const popup1 = new mapboxgl.Popup({className: 'popup'}).setHTML(`
     <div>
         <p>Dyr er så sjove!<br>Hvad er dit yndlingsdyr og hvorfor?</p>
-        <div class="flagra"><img src="images/flagraleft.png"></div>
+        <div><img id="flagra" src="images/flagraleft.png" alt="flagra venstre"></div>
+<div><button id="openPopupButton1">Ankommet?</button></div>
     </div>
 `);
-
     const popup2 = new mapboxgl.Popup({className: 'popup'}).setHTML(`
     <div>
-        <img src="images/flagradown.png" style="width: auto; height: 80px;"<br>
+        <img id="flagra" src="images/flagradown.png" alt="flagra ned"><br>
         <p>Kan du også høre den gode musik der kommer nede fra Kajen?<br>Kan du finde statuen på vej hen til Kajen?</p>
-        <div>
-            <button class="button">Ankommet?</button>
-        </div>
+   <div><button id="openPopupButton2">Ankommet?</button></div>
     </div>
 `);
     const popup3 = new mapboxgl.Popup({className: 'popup'}).setHTML(`
     <div>
         <p>Det er godt nok blevet varmt!<br>Måske et dyp i vandet kunne være godt.<br>Hvor mange GRÅ huse kan du finde på vejen hen til badebroen?</p>
-        <img src="images/flagraright.png" style="width: auto; height: 80px;"
-    </div>
+        <img id="flagra"  src="images/flagraright.png" alt="flagra højre">
+<div><button id="openPopupButton3">Ankommet?</button></div>
+</div>
 `);
     const popup4 = new mapboxgl.Popup({className: 'popup'}).setHTML(`
     <div>
         <p>Er du også blevet lidt sulten?<br>Kan du finde mig 15 gange inden vi når cafeen?<br>Måske jeg har en ekstra lille opgave.</p>
-        <img src="images/flagraright.png" style="width: auto; height: 80px;"
-    </div>
+        <img id="flagra" src="images/flagraright.png" alt="flagra højre">
+<div><button id="openPopupButton4">Ankommet?</button></div>
+</div>
 `);
     const popup5 = new mapboxgl.Popup({className: 'popup'}).setHTML(`
     <div>
         <p>Jeg elsker at være på legepladsen.<br>Hvor mange gange kan du finde mig på vejen derhen?</p>
-        <img src="images/flagraright.png" style="width: auto; height: 80px;"
-    </div>
+        <img id="flagra"  src="images/flagraright.png" alt="flagra højre">
+<div><button id="openPopupButton5">Ankommet?</button></div>
+</div>
 `);
     const popup6 = new mapboxgl.Popup({className: 'popup'}).setHTML(`
     <div>
         <p>Så mange pæne ting, der ikke har noget sted at bo!<br>Der er 3 lyskryds inden du når hen til genbrugsbutikken.<br>Kan du finde dem alle sammen?</p>
-        <img src="images/flagraright.png" style="width: auto; height: 80px;"
-    </div>
+        <img id="flagra" src="images/flagraright.png" alt="flagra højre">
+<div><button id="openPopupButton6">Ankommet?</button></div>
+</div>
 `);
 
     const marker1 = new mapboxgl.Marker(customMarkerEl)
         .setLngLat([11.890960, 54.766383])
         .setPopup(popup1)
         .addTo(map);
+
 
     const marker2 = new mapboxgl.Marker(customMarkerEl2)
         .setLngLat([11.862117, 54.770114])
@@ -184,6 +174,98 @@ require "settings/init.php";
         .setLngLat([11.878360, 54.769360])
         .setPopup(popup6)
         .addTo(map);
+
+
+        popup1.on('open', () => {
+            const button = popup1.getElement().querySelector('#openPopupButton1');
+            if (button) {
+                button.addEventListener('click', () => {
+
+                    popup1.remove();
+                    const newPopup = new mapboxgl.Popup({ offset: 25 });
+
+                    newPopup.setLngLat(popup1.getLngLat([11.890960, 54.766383]));
+                    newPopup.setHTML("<p>Vidste du godt at pingviner ikke kun har deres tuxido på for at se godt ud, men det hjælper dem faktisk med at gemme sig for farlige rovdyr der vil spise dem i vandet.</p><br><img id='flagra' src='images/flagraleft.png' alt='left'>");
+                    newPopup.addTo(map);
+                });
+            }
+        });
+
+    popup2.on('open', () => {
+        const button = popup2.getElement().querySelector('#openPopupButton2');
+        if (button) {
+            button.addEventListener('click', () => {
+
+                popup2.remove();
+                const newPopup = new mapboxgl.Popup({ offset: 25 });
+
+                newPopup.setLngLat(popup2.getLngLat([11.862117, 54.770114]));
+                newPopup.setHTML("<p>Jeg glæder mig sådan til at komme ned til kajen for at høre musik, men faktisk kan jeg og alle mine flagermus-venner høre musikken hele 17 meter væk!" +
+                    "<br>Det er cirka 243 mælkekartoner stillet op ved siden af hinanden!</p><br><img id='flagra' src='images/flagradown.png' alt='upsidedown'");
+                newPopup.addTo(map);
+            });
+        }
+    });
+
+    popup3.on('open', () => {
+        const button = popup3.getElement().querySelector('#openPopupButton3');
+        if (button) {
+            button.addEventListener('click', () => {
+
+                popup3.remove();
+                const newPopup = new mapboxgl.Popup({ offset: 25 });
+
+                newPopup.setLngLat(popup3.getLngLat([11.848569, 54.782692]));
+                newPopup.setHTML("<p>Vidste du at vi flagermus ikke kun kan flyve, men faktisk også er ret gode til at svømme?<br>Hvad med dig? Vis mig om du er lige så god til at svømme som jeg er!</p><br><img id='flagra' src='images/flagraright.png' alt='right'>");
+                newPopup.addTo(map);
+            });
+        }
+    });
+
+    popup4.on('open', () => {
+        const button = popup4.getElement().querySelector('#openPopupButton4');
+        if (button) {
+            button.addEventListener('click', () => {
+
+                popup4.remove();
+                const newPopup = new mapboxgl.Popup({ offset: 25 });
+
+                newPopup.setLngLat(popup4.getLngLat([11.863070, 54.772738]));
+                newPopup.setHTML("<p>Nam! Så er det tid til at spise! Vidste du, at vi flagermuse elsker frugter, som for eksempel figner, mangoer og bananer?<br>Så unger - husk at gøre som flagermusen, og spis sundt!</p><br><img id='flagra' src='images/flagraright.png' alt='right'>");
+                newPopup.addTo(map);
+            });
+        }
+    });
+
+    popup5.on('open', () => {
+        const button = popup5.getElement().querySelector('#openPopupButton5');
+        if (button) {
+            button.addEventListener('click', () => {
+
+                popup5.remove();
+                const newPopup = new mapboxgl.Popup({ offset: 25 });
+
+                newPopup.setLngLat(popup5.getLngLat([11.8708083, 54.7706267]));
+                newPopup.setHTML("<p>Vidste du at man kan låne en fodbold eller petanquekugler på biblioteket på den anden side af vejen?<br>Man skal bare spørge pænt.</p><br><img id='flagra' src='images/flagraright.png' alt='right'>");
+                newPopup.addTo(map);
+            });
+        }
+    });
+
+    popup6.on('open', () => {
+        const button = popup6.getElement().querySelector('#openPopupButton6');
+        if (button) {
+            button.addEventListener('click', () => {
+
+                popup6.remove();
+                const newPopup = new mapboxgl.Popup({ offset: 25 });
+
+                newPopup.setLngLat(popup6.getLngLat([11.878360, 54.769360]));
+                newPopup.setHTML("<p>Vidste du at du kan aflevere dit gamle, hullede tøj til genbrug?<br>Selvom det måske ikke kan blive solgt i butikkerne bliver det genbrugt til at lave nyt stof og bliver på den måde til nyt tøj.</p><br><img id='flagra' src='images/flagraright.png' alt='right'><br>");
+                newPopup.addTo(map);
+            });
+        }
+    });
 
 
 
