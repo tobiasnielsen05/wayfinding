@@ -35,12 +35,14 @@ require "settings/init.php";
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v12',
         center: [11.869395, 54.768070],
-        zoom: 12.5
+        zoom: 12.5,
     });
 
     map.addControl(
         new MapboxDirections({
-            accessToken: mapboxgl.accessToken
+            accessToken: mapboxgl.accessToken,
+            unit: 'metric',
+            language: 'DA-DK',
         }),
         'top-left'
     );
@@ -100,45 +102,57 @@ require "settings/init.php";
     customMarkerEl6.style.borderRadius = '50%';
 
     const popup1 = new mapboxgl.Popup({className: 'popup'}).setHTML(`
-    <div>
+    <div class="popup">
+    <div class="popup-content">
         <p>Dyr er så sjove!<br>Hvad er dit yndlingsdyr og hvorfor?</p>
-        <div><img id="flagra" src="images/flagraleft.png" alt="flagra venstre"></div>
+        <div class="left"><img id="flagra" src="images/flagraleft.png" alt="flagra venstre"></div>
 <div><button id="openPopupButton1">Ankommet?</button></div>
+    </div>
     </div>
 `);
     const popup2 = new mapboxgl.Popup({className: 'popup'}).setHTML(`
-    <div>
+<div class="popup">
+<div class="popup-content">
         <img id="flagra" src="images/flagradown.png" alt="flagra ned"><br>
         <p>Kan du også høre den gode musik der kommer nede fra Kajen?<br>Kan du finde statuen på vej hen til Kajen?</p>
    <div><button id="openPopupButton2">Ankommet?</button></div>
     </div>
+    </div>
 `);
     const popup3 = new mapboxgl.Popup({className: 'popup'}).setHTML(`
-    <div>
+<div class="popup">
+<div class="popup-content">
         <p>Det er godt nok blevet varmt!<br>Måske et dyp i vandet kunne være godt.<br>Hvor mange GRÅ huse kan du finde på vejen hen til badebroen?</p>
-        <img id="flagra"  src="images/flagraright.png" alt="flagra højre">
+       <div class="right"><img id="flagra"  src="images/flagraright.png" alt="flagra højre"></div>
 <div><button id="openPopupButton3">Ankommet?</button></div>
+</div>
 </div>
 `);
     const popup4 = new mapboxgl.Popup({className: 'popup'}).setHTML(`
-    <div>
+<div class="popup">
+<div class="popup-content">
         <p>Er du også blevet lidt sulten?<br>Kan du finde mig 15 gange inden vi når cafeen?<br>Måske jeg har en ekstra lille opgave.</p>
-        <img id="flagra" src="images/flagraright.png" alt="flagra højre">
+        <div class="right"><img id="flagra" src="images/flagraright.png" alt="flagra højre"></div>
 <div><button id="openPopupButton4">Ankommet?</button></div>
+</div>
 </div>
 `);
     const popup5 = new mapboxgl.Popup({className: 'popup'}).setHTML(`
-    <div>
+<div class="popup">
+<div class="popup-content">
         <p>Jeg elsker at være på legepladsen.<br>Hvor mange gange kan du finde mig på vejen derhen?</p>
-        <img id="flagra"  src="images/flagraright.png" alt="flagra højre">
+        <div class="right"><img id="flagra" src="images/flagraright.png" alt="flagra højre"></div>
 <div><button id="openPopupButton5">Ankommet?</button></div>
+</div>
 </div>
 `);
     const popup6 = new mapboxgl.Popup({className: 'popup'}).setHTML(`
-    <div>
+<div class="popup">
+<div class="popup-content">
         <p>Så mange pæne ting, der ikke har noget sted at bo!<br>Der er 3 lyskryds inden du når hen til genbrugsbutikken.<br>Kan du finde dem alle sammen?</p>
-        <img id="flagra" src="images/flagraright.png" alt="flagra højre">
+        <div class="right"><img id="flagra" src="images/flagraright.png" alt="flagra højre"></div>
 <div><button id="openPopupButton6">Ankommet?</button></div>
+</div>
 </div>
 `);
 
@@ -185,7 +199,7 @@ require "settings/init.php";
                     const newPopup = new mapboxgl.Popup({ offset: 25 });
 
                     newPopup.setLngLat(popup1.getLngLat([11.890960, 54.766383]));
-                    newPopup.setHTML("<p>Vidste du godt at pingviner ikke kun har deres tuxido på for at se godt ud, men det hjælper dem faktisk med at gemme sig for farlige rovdyr der vil spise dem i vandet.</p><br><img id='flagra' src='images/flagraleft.png' alt='left'>");
+                    newPopup.setHTML("<div class='popup'><div class='popup-content'><p>Vidste du godt at pingviner ikke kun har deres tuxido på for at se godt ud, men det hjælper dem faktisk med at gemme sig for farlige rovdyr der vil spise dem i vandet.</p><br><div class='left'><img id='flagra' src='images/flagraleft.png' alt='left'></div></div></div>");
                     newPopup.addTo(map);
                 });
             }
@@ -200,8 +214,8 @@ require "settings/init.php";
                 const newPopup = new mapboxgl.Popup({ offset: 25 });
 
                 newPopup.setLngLat(popup2.getLngLat([11.862117, 54.770114]));
-                newPopup.setHTML("<p>Jeg glæder mig sådan til at komme ned til kajen for at høre musik, men faktisk kan jeg og alle mine flagermus-venner høre musikken hele 17 meter væk!" +
-                    "<br>Det er cirka 243 mælkekartoner stillet op ved siden af hinanden!</p><br><img id='flagra' src='images/flagradown.png' alt='upsidedown'");
+                newPopup.setHTML("<div class='popup'><div class='popup-content'><img id='flagra' src='images/flagradown.png' alt='upsidedown'><br><p>Jeg glæder mig sådan til at komme ned til kajen for at høre musik, men faktisk kan jeg og alle mine flagermus-venner høre musikken hele 17 meter væk!" +
+                    "<br>Det er cirka 243 mælkekartoner stillet op ved siden af hinanden!</p><br></div></div>");
                 newPopup.addTo(map);
             });
         }
@@ -216,7 +230,7 @@ require "settings/init.php";
                 const newPopup = new mapboxgl.Popup({ offset: 25 });
 
                 newPopup.setLngLat(popup3.getLngLat([11.848569, 54.782692]));
-                newPopup.setHTML("<p>Vidste du at vi flagermus ikke kun kan flyve, men faktisk også er ret gode til at svømme?<br>Hvad med dig? Vis mig om du er lige så god til at svømme som jeg er!</p><br><img id='flagra' src='images/flagraright.png' alt='right'>");
+                newPopup.setHTML("<div class='popup'><div class='popup-content'><p>Vidste du at vi flagermus ikke kun kan flyve, men faktisk også er ret gode til at svømme?<br>Hvad med dig? Vis mig om du er lige så god til at svømme som jeg er!</p><br><div class='right'><img id='flagra' src='images/flagraright.png' alt='right'></div></div></div>");
                 newPopup.addTo(map);
             });
         }
@@ -231,7 +245,7 @@ require "settings/init.php";
                 const newPopup = new mapboxgl.Popup({ offset: 25 });
 
                 newPopup.setLngLat(popup4.getLngLat([11.863070, 54.772738]));
-                newPopup.setHTML("<p>Nam! Så er det tid til at spise! Vidste du, at vi flagermuse elsker frugter, som for eksempel figner, mangoer og bananer?<br>Så unger - husk at gøre som flagermusen, og spis sundt!</p><br><img id='flagra' src='images/flagraright.png' alt='right'>");
+                newPopup.setHTML("<div class='popup'><div class='popup-content'><p>Nam! Så er det tid til at spise! Vidste du, at vi flagermuse elsker frugter, som for eksempel figner, mangoer og bananer?<br>Så unger - husk at gøre som flagermusen, og spis sundt!</p><br><div class='right'><img id='flagra' src='images/flagraright.png' alt='right'></div></div></div>");
                 newPopup.addTo(map);
             });
         }
@@ -246,7 +260,7 @@ require "settings/init.php";
                 const newPopup = new mapboxgl.Popup({ offset: 25 });
 
                 newPopup.setLngLat(popup5.getLngLat([11.8708083, 54.7706267]));
-                newPopup.setHTML("<p>Vidste du at man kan låne en fodbold eller petanquekugler på biblioteket på den anden side af vejen?<br>Man skal bare spørge pænt.</p><br><img id='flagra' src='images/flagraright.png' alt='right'>");
+                newPopup.setHTML("<div class='popup'><div class='popup-content'><p>Vidste du at man kan låne en fodbold eller petanquekugler på biblioteket på den anden side af vejen?<br>Man skal bare spørge pænt.</p><br><div class='right'><img id='flagra' src='images/flagraright.png' alt='right'></div></div></div>");
                 newPopup.addTo(map);
             });
         }
@@ -261,7 +275,7 @@ require "settings/init.php";
                 const newPopup = new mapboxgl.Popup({ offset: 25 });
 
                 newPopup.setLngLat(popup6.getLngLat([11.878360, 54.769360]));
-                newPopup.setHTML("<p>Vidste du at du kan aflevere dit gamle, hullede tøj til genbrug?<br>Selvom det måske ikke kan blive solgt i butikkerne bliver det genbrugt til at lave nyt stof og bliver på den måde til nyt tøj.</p><br><img id='flagra' src='images/flagraright.png' alt='right'><br>");
+                newPopup.setHTML("<div class='popup'><div class='popup-content'><p>Vidste du at du kan aflevere dit gamle, hullede tøj til genbrug?<br>Selvom det måske ikke kan blive solgt i butikkerne bliver det genbrugt til at lave nyt stof og bliver på den måde til nyt tøj.</p><br><div class='right'><img id='flagra' src='images/flagraright.png' alt='right'></div></div></div>");
                 newPopup.addTo(map);
             });
         }
