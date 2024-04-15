@@ -106,7 +106,7 @@ require "settings/init.php";
     <div class="popup-content">
         <p>Dyr er så sjove!<br>Hvad er dit yndlingsdyr og hvorfor?</p>
         <div class="left"><img id="flagra" src="images/flagraleft.png" alt="flagra venstre"></div>
-<div><button id="openPopupButton1">Ankommet?</button></div>
+<div><button id="openPopupButton">Ankommet?</button></div>
     </div>
     </div>
 `);
@@ -115,7 +115,7 @@ require "settings/init.php";
 <div class="popup-content">
         <img id="flagra" src="images/flagradown.png" alt="flagra ned"><br>
         <p>Kan du også høre den gode musik der kommer nede fra Kajen?<br>Kan du finde statuen på vej hen til Kajen?</p>
-   <div><button id="openPopupButton2">Ankommet?</button></div>
+   <div><button id="openPopupButton">Ankommet?</button></div>
     </div>
     </div>
 `);
@@ -124,7 +124,7 @@ require "settings/init.php";
 <div class="popup-content">
         <p>Det er godt nok blevet varmt!<br>Måske et dyp i vandet kunne være godt.<br>Hvor mange GRÅ huse kan du finde på vejen hen til badebroen?</p>
        <div class="right"><img id="flagra"  src="images/flagraright.png" alt="flagra højre"></div>
-<div><button id="openPopupButton3">Ankommet?</button></div>
+<div><button id="openPopupButton">Ankommet?</button></div>
 </div>
 </div>
 `);
@@ -133,7 +133,7 @@ require "settings/init.php";
 <div class="popup-content">
         <p>Er du også blevet lidt sulten?<br>Kan du finde mig 15 gange inden vi når cafeen?<br>Måske jeg har en ekstra lille opgave.</p>
         <div class="right"><img id="flagra" src="images/flagraright.png" alt="flagra højre"></div>
-<div><button id="openPopupButton4">Ankommet?</button></div>
+<div><button id="openPopupButton">Ankommet?</button></div>
 </div>
 </div>
 `);
@@ -142,7 +142,7 @@ require "settings/init.php";
 <div class="popup-content">
         <p>Jeg elsker at være på legepladsen.<br>Hvor mange gange kan du finde mig på vejen derhen?</p>
         <div class="right"><img id="flagra" src="images/flagraright.png" alt="flagra højre"></div>
-<div><button id="openPopupButton5">Ankommet?</button></div>
+<div><button id="openPopupButton">Ankommet?</button></div>
 </div>
 </div>
 `);
@@ -151,7 +151,7 @@ require "settings/init.php";
 <div class="popup-content">
         <p>Så mange pæne ting, der ikke har noget sted at bo!<br>Der er 3 lyskryds inden du når hen til genbrugsbutikken.<br>Kan du finde dem alle sammen?</p>
         <div class="right"><img id="flagra" src="images/flagraright.png" alt="flagra højre"></div>
-<div><button id="openPopupButton6">Ankommet?</button></div>
+<div><button id="openPopupButton">Ankommet?</button></div>
 </div>
 </div>
 `);

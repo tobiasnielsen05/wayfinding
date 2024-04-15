@@ -71,4 +71,10 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 	justify-content: right;
 }
 
+#openPopupButton {
+	background-color: #574B8B;
+	color: white;
+	border-radius: 10px;
+	border: 0px;
+}
 
