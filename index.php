@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<body>
+<body class="bg-primary">
 <div>
     <a href="maps.php"><img class="w-100" src="images/forside.jpg" alt="baggrundsbillede"></a>
 </div>
