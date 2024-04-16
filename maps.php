@@ -6,7 +6,7 @@ require "settings/init.php";
 <head>
     <meta charset="utf-8">
 
-    <title>Flagra's Guide</title>
+    <title>Flagra's Guide Map</title>
 
     <meta name="robots" content="All">
     <meta name="author" content="Udgiver">
@@ -16,7 +16,9 @@ require "settings/init.php";
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js"></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.3.1/mapbox-gl-directions.js"></script>
-    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.3.1/mapbox-gl-directions.css" type="text/css">
+    <link rel="stylesheet"
+          href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.3.1/mapbox-gl-directions.css"
+          type="text/css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -35,7 +37,7 @@ require "settings/init.php";
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v12',
         center: [11.869395, 54.768070],
-        zoom: 12.5,
+        zoom: 12.4,
     });
 
     map.addControl(
@@ -106,8 +108,10 @@ require "settings/init.php";
     <div class="popup-content">
         <p>Dyr er så sjove!<br>Hvad er dit yndlingsdyr og hvorfor?</p>
         <div class="left"><img id="flagra" src="images/flagraleft.png" alt="flagra venstre"></div>
-<div><button id="openPopupButton">Ankommet?</button></div>
-    </div>
+        <div>
+            <button class="button" id="openPopupButton1">Ankommet?</button>
+         </div>
+        </div>
     </div>
 `);
     const popup2 = new mapboxgl.Popup({className: 'popup'}).setHTML(`
@@ -115,7 +119,7 @@ require "settings/init.php";
 <div class="popup-content">
         <img id="flagra" src="images/flagradown.png" alt="flagra ned"><br>
         <p>Kan du også høre den gode musik der kommer nede fra Kajen?<br>Kan du finde statuen på vej hen til Kajen?</p>
-   <div><button id="openPopupButton">Ankommet?</button></div>
+   <div><button class="button" id="openPopupButton2">Ankommet?</button></div>
     </div>
     </div>
 `);
@@ -124,7 +128,7 @@ require "settings/init.php";
 <div class="popup-content">
         <p>Det er godt nok blevet varmt!<br>Måske et dyp i vandet kunne være godt.<br>Hvor mange GRÅ huse kan du finde på vejen hen til badebroen?</p>
        <div class="right"><img id="flagra"  src="images/flagraright.png" alt="flagra højre"></div>
-<div><button id="openPopupButton">Ankommet?</button></div>
+<div><button class="button" id="openPopupButton3">Ankommet?</button></div>
 </div>
 </div>
 `);
@@ -133,7 +137,7 @@ require "settings/init.php";
 <div class="popup-content">
         <p>Er du også blevet lidt sulten?<br>Kan du finde mig 15 gange inden vi når cafeen?<br>Måske jeg har en ekstra lille opgave.</p>
         <div class="right"><img id="flagra" src="images/flagraright.png" alt="flagra højre"></div>
-<div><button id="openPopupButton">Ankommet?</button></div>
+<div><button class="button" id="openPopupButton4">Ankommet?</button></div>
 </div>
 </div>
 `);
@@ -142,7 +146,7 @@ require "settings/init.php";
 <div class="popup-content">
         <p>Jeg elsker at være på legepladsen.<br>Hvor mange gange kan du finde mig på vejen derhen?</p>
         <div class="right"><img id="flagra" src="images/flagraright.png" alt="flagra højre"></div>
-<div><button id="openPopupButton">Ankommet?</button></div>
+<div><button class="button" id="openPopupButton5">Ankommet?</button></div>
 </div>
 </div>
 `);
@@ -151,7 +155,7 @@ require "settings/init.php";
 <div class="popup-content">
         <p>Så mange pæne ting, der ikke har noget sted at bo!<br>Der er 3 lyskryds inden du når hen til genbrugsbutikken.<br>Kan du finde dem alle sammen?</p>
         <div class="right"><img id="flagra" src="images/flagraright.png" alt="flagra højre"></div>
-<div><button id="openPopupButton">Ankommet?</button></div>
+<div><button class="button" id="openPopupButton6">Ankommet?</button></div>
 </div>
 </div>
 `);
@@ -196,7 +200,7 @@ require "settings/init.php";
             button.addEventListener('click', () => {
 
                 popup1.remove();
-                const newPopup = new mapboxgl.Popup({ offset: 25 });
+                const newPopup = new mapboxgl.Popup({offset: 25});
 
                 newPopup.setLngLat(popup1.getLngLat([11.890960, 54.766383]));
                 newPopup.setHTML("<div class='popup'><div class='popup-content'><p>Vidste du godt at pingviner ikke kun har deres tuxido på for at se godt ud, men det hjælper dem faktisk med at gemme sig for farlige rovdyr der vil spise dem i vandet.</p><br><div class='left'><img id='flagra' src='images/flagraleft.png' alt='left'></div></div></div>");
@@ -211,7 +215,7 @@ require "settings/init.php";
             button.addEventListener('click', () => {
 
                 popup2.remove();
-                const newPopup = new mapboxgl.Popup({ offset: 25 });
+                const newPopup = new mapboxgl.Popup({offset: 25});
 
                 newPopup.setLngLat(popup2.getLngLat([11.862117, 54.770114]));
                 newPopup.setHTML("<div class='popup'><div class='popup-content'><img id='flagra' src='images/flagradown.png' alt='upsidedown'><br><p>Jeg glæder mig sådan til at komme ned til kajen for at høre musik, men faktisk kan jeg og alle mine flagermus-venner høre musikken hele 17 meter væk!" +
@@ -227,7 +231,7 @@ require "settings/init.php";
             button.addEventListener('click', () => {
 
                 popup3.remove();
-                const newPopup = new mapboxgl.Popup({ offset: 25 });
+                const newPopup = new mapboxgl.Popup({offset: 25});
 
                 newPopup.setLngLat(popup3.getLngLat([11.848569, 54.782692]));
                 newPopup.setHTML("<div class='popup'><div class='popup-content'><p>Vidste du at vi flagermus ikke kun kan flyve, men faktisk også er ret gode til at svømme?<br>Hvad med dig? Vis mig om du er lige så god til at svømme som jeg er!</p><br><div class='right'><img id='flagra' src='images/flagraright.png' alt='right'></div></div></div>");
@@ -242,7 +246,7 @@ require "settings/init.php";
             button.addEventListener('click', () => {
 
                 popup4.remove();
-                const newPopup = new mapboxgl.Popup({ offset: 25 });
+                const newPopup = new mapboxgl.Popup({offset: 25});
 
                 newPopup.setLngLat(popup4.getLngLat([11.863070, 54.772738]));
                 newPopup.setHTML("<div class='popup'><div class='popup-content'><p>Nam! Så er det tid til at spise! Vidste du, at vi flagermuse elsker frugter, som for eksempel figner, mangoer og bananer?<br>Så unger - husk at gøre som flagermusen, og spis sundt!</p><br><div class='right'><img id='flagra' src='images/flagraright.png' alt='right'></div></div></div>");
@@ -257,7 +261,7 @@ require "settings/init.php";
             button.addEventListener('click', () => {
 
                 popup5.remove();
-                const newPopup = new mapboxgl.Popup({ offset: 25 });
+                const newPopup = new mapboxgl.Popup({offset: 25});
 
                 newPopup.setLngLat(popup5.getLngLat([11.8708083, 54.7706267]));
                 newPopup.setHTML("<div class='popup'><div class='popup-content'><p>Vidste du at man kan låne en fodbold eller petanquekugler på biblioteket på den anden side af vejen?<br>Man skal bare spørge pænt.</p><br><div class='right'><img id='flagra' src='images/flagraright.png' alt='right'></div></div></div>");
@@ -272,7 +276,7 @@ require "settings/init.php";
             button.addEventListener('click', () => {
 
                 popup6.remove();
-                const newPopup = new mapboxgl.Popup({ offset: 25 });
+                const newPopup = new mapboxgl.Popup({offset: 25});
 
                 newPopup.setLngLat(popup6.getLngLat([11.878360, 54.769360]));
                 newPopup.setHTML("<div class='popup'><div class='popup-content'><p>Vidste du at du kan aflevere dit gamle, hullede tøj til genbrug?<br>Selvom det måske ikke kan blive solgt i butikkerne bliver det genbrugt til at lave nyt stof og bliver på den måde til nyt tøj.</p><br><div class='right'><img id='flagra' src='images/flagraright.png' alt='right'></div></div></div>");
@@ -280,10 +284,6 @@ require "settings/init.php";
             });
         }
     });
-
-
-
 </script>
-
 </body>
 </html>

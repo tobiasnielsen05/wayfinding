@@ -19,11 +19,9 @@ require "settings/init.php";
 
 <body>
 <div>
-    <a href="maps.html"><img class="w-100" src="images/forside.jpg" alt="baggrundsbillede"></a>
+    <a href="maps.php"><img class="w-100" src="images/forside.jpg" alt="baggrundsbillede"></a>
 </div>
 
-
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>
