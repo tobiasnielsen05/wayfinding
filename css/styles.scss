@@ -75,6 +75,9 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 	background-color: #574B8B;
 	color: white;
 	border-radius: 10px;
-	border: 0px;
+	border: 0;
 }
 
+#test {
+	background-image: url("images/forside.jpg");
+}
