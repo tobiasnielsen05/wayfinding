@@ -1,6 +1,3 @@
-<?php
-require "settings/init.php";
-?>
 <!DOCTYPE html>
 <html lang="da">
 <head>
